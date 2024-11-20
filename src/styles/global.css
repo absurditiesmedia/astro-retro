@@ -1,0 +1,73 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+	--primary:#E900CF;
+	--secondary:#247BA0;
+	--tertiary:#FB3640;
+	--accent: #BFFF00;
+	--accent-dark: #1D3461;
+	--black: #000000;
+	--gray: #555555;
+	--gray-light: #aaaaaa;
+	--gray-dark: #333333;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
+}
+
+
+html {
+	background-color: var(--accent);
+	color:var(--accent-dark);
+  font-weight:400;
+	font-style: normal;
+	font-family:"Source Code Pro", monospace;	
+}
+
+em{ 
+	font-style:italic;
+}
+strong{
+	font-weight:700;
+}
+
+img {
+	max-width: 98vw;
+
+}
+
+h1,h2,h3,h4,h5,h6,h7,h8,h9 {
+	display: inline;
+	font-weight:700;
+}
+
+h1	{font-size: 4rem;}
+h2	{font-size:2.5rem;}
+h3	{font-size:2.25rem;}
+h4	{font-size:2rem;}
+h5	{font-size:1.75rem;}
+h6	{font-size:1.5rem;}
+h7	{font-size:1.25rem;}
+h8	{font-size:1rem;}
+h9  {font-size:.5rem;}
+
+article.pre {
+	white-space: pre-wrap;
+	margin-bottom:1rem;
+}
+
+article.blog-post-teaser {
+	white-space:unset;
+}
+
+a.image-link {
+	text-decoration:none;
+}
+.astro-code {
+	padding:.6rem;
+  background:var(--accent-dark) !important;
+}
