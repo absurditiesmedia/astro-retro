@@ -10,14 +10,12 @@ let coverURL = cover ? cover : podcastConfig.cover;
 const dateFormatted = dayjs(pubDate).format("ll");
 
 const secondsToHms = (seconds: number): string => {
-  console.log(seconds);
   const SECONDS_PER_DAY = 86400;
   const HOURS_PER_DAY = 24;
   if (isNaN(seconds))
     {
     var total_seconds=0;
     const hms = seconds.split(":");
-    console.log(hms)
     if( hms.length > 2 ) { total_seconds += (parseInt(hms[0]) * 3600); }
     if( hms.length > 1 ) { total_seconds += ((parseInt(hms[1]) * 60) + parseInt(hms[2])); }
     else { total_seconds = 0; }

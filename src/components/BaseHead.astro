@@ -8,7 +8,6 @@ interface Props {
 	description: string;
 	image?: string;
 }
-console.log(Astro.site)
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
@@ -45,3 +44,5 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<link rel="alternate" type="application/rss+xml" href="/blog/feed.xml" title="Blog RSS Feed">
+<link rel="alternate" type="application/rss+xml" href="/podcast/feed.xml" title="Podcast RSS Feed">
