@@ -1,0 +1,24 @@
+
+{
+  "copyright": "",
+  "theme": "light",
+  "fundingText": "",
+  "author": "Absurdities Media Group LLC",
+  "name": "The World's Not Ready, But We're Gonna Do a Shot Anyway",
+  "banner": "/banner.webp",
+  "pageSize": 15,
+  "fundingUrl": "",
+  "owner": "",
+  "favicon": "/favicon.svg",
+  "explicit": false,
+  "cover": "/cover.jpg",
+  "language": "en",
+  "link": "https://absurditiesmedia.com/podcast",
+  "email": "contact@absurditiesmedia.com",
+  "description": "The World's Not Ready, But We're Gonna Do a Shot Anyway. It never got weird enough for us. A weekly podcast about all things absurd.",
+  "category": [
+    "Technology",
+    "Business"
+  ],
+  "feedSize": ""
+}

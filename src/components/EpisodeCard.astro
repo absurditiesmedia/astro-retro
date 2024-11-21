@@ -1,0 +1,49 @@
+---
+const { title, cover, desc, url, audioUrl, id, pubDate, duration, explicit } = Astro.props;
+import podcastConfig from "../../podcast.config.json";
+import MediaEnclosure from "../components/MediaEnclosure.astro";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.extend(localizedFormat);
+
+let coverURL = cover ? cover : podcastConfig.cover;
+const dateFormatted = dayjs(pubDate).format("ll");
+
+const secondsToHms = (seconds: number): string => {
+  const SECONDS_PER_DAY = 86400;
+  const HOURS_PER_DAY = 24;
+  if (isNaN(seconds))
+    {
+    var total_seconds=0;
+    const hms = seconds.split(":");
+    if( hms.length > 2 ) { total_seconds += (parseInt(hms[0]) * 3600); }
+    if( hms.length > 1 ) { total_seconds += ((parseInt(hms[1]) * 60) + parseInt(hms[2])); }
+    else { total_seconds = 0; }
+    seconds = total_seconds;
+    } 
+  else if ( seconds < 0 ) { seconds = 0;} 
+  const days = Math.floor(seconds / SECONDS_PER_DAY);
+  const remainderSeconds = seconds % SECONDS_PER_DAY;
+  const hms = new Date(remainderSeconds * 1000).toISOString().substring(11, 19);
+  return hms.replace(/^(\d+)/, h => `${Number(h) + days * HOURS_PER_DAY}`.padStart(2, '0'));
+};
+
+const durationFormatted = secondsToHms(duration);
+const epidodeInfoClasses = "episode-info" + " " + (explicit ? "episode-explicit" : "");
+---
+<article class="episode-card {id}">
+  <section class="cover-image">
+    <img src={coverURL} alt={title} class="" />
+  </section>
+  <section class={epidodeInfoClasses}>
+    <a href={url} class="episode-link">
+      <h2 class="episode-title">{title}</h2>
+    </a>
+    <div class="epidsode-duration">{durationFormatted} </div>
+    <div class="epidsode-date">{dateFormatted}</div>
+    <div class="episode-description">{desc}</div>
+  </section>
+  <section class="episode-enclosure" >
+     <MediaEnclosure audioUrl={audioUrl} id={id} />
+  </section>
+</article>
