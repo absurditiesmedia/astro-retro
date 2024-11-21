@@ -1,5 +1,5 @@
 {
-  "name": "astro-blog-reference",
+  "name": "astro-retro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,11 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^4.16.13",
-    "@astrojs/check": "^0.9.4",
-    "typescript": "^5.6.3"
+    "astro-robots": "^2.2.0",
+    "astro-robots-txt": "^1.0.0",
+    "daisyui": "^4.12.14",
+    "dayjs": "^1.11.13",
+    "html-to-text": "^9.0.5",
+    "sharp": "^0.33.5",
+    "typescript": "^5.6.3",
+    "xml2js": "^0.6.2"
   }
 }

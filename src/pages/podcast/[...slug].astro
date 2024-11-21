@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import EpisodeCard from '../../components/EpisodeCard.astro';
+import PodcastLayout from '../../layouts/PodcastLayout.astro';
+
+export async function getStaticPaths() {
+	const episodes = await getCollection('podcast');
+	return episodes.map((episode) => ({
+		params: { slug: episode.slug },
+		props: episode,
+	}));
+}
+type Props = CollectionEntry<'podcast'>;
+const episode = Astro.props;
+const { Content } = await episode.render().all(function(){console.log('here')});
+---
+
+<PodcastLayout 
+  title={episode.data.title} 
+	cover={episode.data.cover} 
+	desc={episode.body} 
+	url={"/podcast/" + episode.slug} 
+	audioUrl={episode.data.audioUrl}, 
+	pubDate={episode.data.pubDate}
+	duration={episode.data.duration}
+	explicit={episode.data.explicit}
+	id={"card-" + episode.index}
+	>
+	<Content />
+</PodcastLayout>
