@@ -1,13 +1,14 @@
 ---
-title: Demo Episode
-audioUrl: https://ia800505.us.archive.org/15/items/astropod/1%20-%20Trailer%20with%20BG%20%28enhanced%29.ogg
-pubDate: Sep 10 2022
-duration: 36
+title: Astro Retro Podcast Episode 1
+audioUrl: https://ia803202.us.archive.org/6/items/cast7/cast4.mp3
+pubDate: Nov 10 2024
+duration: 1:5009:20000
 size: 0.7
-cover: ""
+cover: "/absurdities_placeholder14.png"
 explicit: false
 episode: 1
 season: 1
 episodeType: full
+
 ---
-This is an episode demo of Astropod. Here you can add the description of your episode.
+This is an episode demo of the Astro Retro Theme Podcast

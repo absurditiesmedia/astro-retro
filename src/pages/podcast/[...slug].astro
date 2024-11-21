@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import EpisodeCard from '../../components/EpisodeCard.astro';
 import PodcastLayout from '../../layouts/PodcastLayout.astro';
 
 export async function getStaticPaths() {
@@ -12,7 +11,7 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<'podcast'>;
 const episode = Astro.props;
-const { Content } = await episode.render().all(function(){console.log('here')});
+const { Content } = await episode.render();
 ---
 
 <PodcastLayout 

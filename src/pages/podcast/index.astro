@@ -5,11 +5,8 @@ import Footer from '../../components/Footer.astro';
 import EpisodeCard from '../../components/EpisodeCard.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import dcapConfig from "../../../decap.config.mjs";
 import podcastConfig from "../../../podcast.config.json";
-import { defineConfig } from "astro/config";
 import { htmlToText } from 'html-to-text';
-import FormattedDate from '../../components/FormattedDate.astro';
 
 const episodes = (await getCollection('podcast')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
