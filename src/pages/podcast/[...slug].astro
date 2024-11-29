@@ -25,7 +25,7 @@ const { Content } = await episode.render();
 	explicit={episode.data.explicit}
 	season={episode.data.season}
 	episode={episode.data.episode}
-	id={"card-" + episode.index}
+	id={"card-" + episode.data.episode}
 	>
 	<Content />
 </PodcastLayout>

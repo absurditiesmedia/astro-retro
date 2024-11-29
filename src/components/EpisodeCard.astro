@@ -15,7 +15,8 @@ const secondsToHms = (seconds: number): string => {
   if (isNaN(seconds))
     {
     var total_seconds=0;
-    const hms = seconds.split(":");
+    
+    const hms = seconds.toString().split(":");
     if( hms.length > 2 ) { total_seconds += (parseInt(hms[0]) * 3600); }
     if( hms.length > 1 ) { total_seconds += ((parseInt(hms[1]) * 60) + parseInt(hms[2])); }
     else { total_seconds = 0; }
