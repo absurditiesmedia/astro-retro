@@ -3,7 +3,7 @@ import { z, defineCollection } from "astro:content";
 const episodeSchema = z.object({
     title: z.string(),
     audioUrl: z.string(),
-    pubDate: z.date(),
+    pubDate: z.coerce.date(),
     cover: z.string().optional(),
     explicit: z.boolean().optional(),
     episode: z.number().optional(),
