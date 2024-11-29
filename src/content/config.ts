@@ -3,10 +3,10 @@ import { z, defineCollection } from "astro:content";
 const episodeSchema = z.object({
     title: z.string(),
     audioUrl: z.string(),
-    pubDate: z.coerce.date().optional(),
+    pubDate: z.coerce.date().required(),
     cover: z.string().optional(),
     explicit: z.boolean().optional(),
-    episode: z.number().optional(),
+    episode: z.number().required(),
     season: z.number().optional(),
     episodeType: z.string().optional(),
     duration: z.coerce.string(), //duration in format hh:mm:ss

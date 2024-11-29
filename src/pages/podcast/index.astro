@@ -12,7 +12,7 @@ const episodes = (await getCollection('podcast')).sort(
 );
 
 ---
-<BaseHead title=`${podcastConfig.name} | ${SITE_TITLE}` description={SITE_DESCRIPTION} />
+<BaseHead title=` ${podcastConfig.name} | ${SITE_TITLE}` description={SITE_DESCRIPTION} />
 <Header />
 <main>
 <h2>{podcastConfig.name}</h2>
@@ -27,7 +27,7 @@ const episodes = (await getCollection('podcast')).sort(
 				audioUrl={episode.data.audioUrl}
 				pubDate={episode.data.pubDate}
 				duration={episode.data.duration}
-				id={"card-" + episode.index}
+				id={"card-" + episode.data.episode}
 			/>
 			))
 		}
