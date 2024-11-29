@@ -55,19 +55,29 @@ h7	{font-size:1.25rem;}
 h8	{font-size:1rem;}
 h9  {font-size:.5rem;}
 
-article.pre {
-	white-space: pre-wrap;
-	margin-bottom:1rem;
-}
-
-article.blog-post-teaser {
-	white-space:unset;
-}
-
 a.image-link {
 	text-decoration:none;
 }
 .astro-code {
 	padding:.6rem;
   background:var(--accent-dark) !important;
+}
+
+
+
+
+article.pre {
+	white-space: pre-wrap;
+	margin-bottom:1rem;
+}
+article.blog-post-teaser {
+	white-space:unset;
+}
+li { white-space:normal; }
+
+li p {
+	display:inline;
+	margin:0;
+	padding:0;
+  white-space:pre-wrap;  
 }
