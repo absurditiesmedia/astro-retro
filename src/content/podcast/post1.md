@@ -1,5 +1,5 @@
 ---
-title: Astro Retro Podcast Episode 1
+title: Astro Retro Sample Episode
 audioUrl: https://ia803202.us.archive.org/6/items/cast7/cast4.mp3
 pubDate: Nov 10 2024
 duration: 1:5009:20000

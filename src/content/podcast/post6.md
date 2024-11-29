@@ -1,12 +1,12 @@
 ---
-title: Astro Retro Podcast Episode 6 
+title: I Stole That Last One From a Ministry Record
 audioUrl: https://ia803202.us.archive.org/6/items/cast7/cast6.mp3
 pubDate: Nov 16 2024
 duration: 1:5009:20000
 size: 0.7
 cover: "/absurdities_placeholder17.png"
 explicit: false
-episode: 1
+episode: 6
 season: 1
 episodeType: full
 

@@ -1,12 +1,12 @@
 ---
-title: Astro Retro Podcast Epidode 2
+title: Another Sample Topic
 audioUrl: https://ia903202.us.archive.org/6/items/cast7/cast1.mp3
 pubDate: Nov 12 2024
 duration: 1:5009:20000
 size: 0.7
 cover: "/absurdities_placeholder10.png"
 explicit: false
-episode: 1
+episode: 2
 season: 1
 episodeType: full
 

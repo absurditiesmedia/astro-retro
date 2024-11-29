@@ -23,6 +23,8 @@ const { Content } = await episode.render();
 	pubDate={episode.data.pubDate}
 	duration={episode.data.duration}
 	explicit={episode.data.explicit}
+	season={episode.data.season}
+	episode={episode.data.episode}
 	id={"card-" + episode.index}
 	>
 	<Content />

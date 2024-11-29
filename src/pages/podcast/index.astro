@@ -7,41 +7,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import podcastConfig from "../../../podcast.config.json";
 import { htmlToText } from 'html-to-text';
-
 const episodes = (await getCollection('podcast')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
 ---
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h2>{podcastConfig.name}</h2>
-			<section id="blog-posts" class="blog-posts">
-					{
-						episodes.map((episode) => (
-            
-						<EpisodeCard
-							title={episode.data.title}
-							cover={episode.data.cover}
-							desc={htmlToText(episode.body.slice(0, 500))}
-							url={"/podcast/" + episode.slug}
-							audioUrl={episode.data.audioUrl}
-							pubDate={episode.data.pubDate}
-							duration={episode.data.duration}
-							id={"card-" + episode.index}
-						/>
-						))
-					}
-				</section>
-
-			<!--<section><article class="main pre"></article></section>-->
-
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseHead title=`${podcastConfig.name} | ${SITE_TITLE}` description={SITE_DESCRIPTION} />
+<Header />
+<main>
+<h2>{podcastConfig.name}</h2>
+<section id="blog-posts" class="blog-posts">
+		{
+			episodes.map((episode) => (
+			<EpisodeCard
+				title={episode.data.title}
+				cover={episode.data.cover}
+				desc={htmlToText(episode.body.slice(0, 500))}
+				url={"/podcast/" + episode.slug}
+				audioUrl={episode.data.audioUrl}
+				pubDate={episode.data.pubDate}
+				duration={episode.data.duration}
+				id={"card-" + episode.index}
+			/>
+			))
+		}
+</section>
+<Footer />

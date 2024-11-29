@@ -1,12 +1,12 @@
 ---
-title: Astro Retro Podcast Episode 8
+title: I'm Sure That Was Obvious Enough It Didn't Need Pointed Out
 audioUrl: https://ia803202.us.archive.org/6/items/cast7/cast8.mp3
 pubDate: Nov 18 2024
 duration: 1:5009:20000
 size: 0.7
 cover: "/absurdities_placeholder19.png"
 explicit: false
-episode: 1
+episode: 8
 season: 1
 episodeType: full
 

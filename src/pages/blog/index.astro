@@ -6,19 +6,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { defineConfig } from 'astro/config'
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
-
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
+<BaseHead title=`Blog | ${SITE_TITLE}` description={SITE_DESCRIPTION} />
+<Header />
 		<main>
 			<h2>Blog</h2>
 			<section id="blog-posts" class="blog-posts">
@@ -32,14 +25,8 @@ const posts = (await getCollection('blog')).sort(
 									<h2 class="title">//{post.data.title} - <FormattedDate date={post.data.pubDate} /></h2>
 								</a>
 							</article>
-							
 						))
 					}
-				</section>
-
-		<!--<section><article class="main pre"></article></section>-->
-
+		  </section>
 		</main>
-		<Footer />
-	</body>
-</html>
+<Footer />
