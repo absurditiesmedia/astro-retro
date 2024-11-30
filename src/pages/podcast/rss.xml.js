@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import podcastConfig from "../../../podcast.config.json";
 import { getCollection } from "astro:content";
 import { htmlToText } from "html-to-text"
-import { formatTime } from "../../modules/field_formatter";  
+import  formatTime  from "../../modules/field_formatter";  
 
 let episode = await getCollection("podcast");
 
@@ -11,6 +11,7 @@ episode.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 if (podcastConfig.feedSize) episode = episode.slice(0, podcastConfig.feedSize);
 const lastBuildDate = dayjs().format("ddd, DD MMM YYYY hh:mm:ss ZZ");
 const cover = isFullUrl(podcastConfig.cover) ? podcastConfig.cover : podcastConfig.link + podcastConfig.cover;
+const currentYear = new Date().getFullYear();
 
 export async function GET(context) {
   let podcast = {
@@ -27,8 +28,8 @@ export async function GET(context) {
           title: podcastConfig.name,
           description: podcastConfig.description,
           link: podcastConfig.link,
-          copyright: podcastConfig.copyright,
-          author: podcastConfig.author,
+          copyright: 'Copyright '+currentYear+' '+podcastConfig.author,
+          webMaster: podcastConfig.email,
           generator: ["Astropod"],
           lastBuildDate: lastBuildDate,
           language: podcastConfig.language,
@@ -38,7 +39,7 @@ export async function GET(context) {
           "itunes:type": "episodic",
           "itunes:explicit": podcastConfig.explicit,
           "itunes:owner": {
-            "itunes:name": podcastConfig.owner,
+            "itunes:name": podcastConfig.author,
             "itunes:email": podcastConfig.email,
           },
           image: {
@@ -91,8 +92,9 @@ export async function GET(context) {
       title: episode.data.title,
       description: episode.body,
       pubDate: dayjs(episode.data.pubDate).format("ddd, DD MMM YYYY hh:mm:ss ZZ"),
-      link: `${podcastConfig.link}/episode/${episode.slug}/`,
-      guid: `${podcastConfig.link}/episode/${episode.slug}/`,
+      link: `${podcastConfig.link}/${episode.slug}`,
+      guid: `${podcastConfig.link}/${episode.slug}`,
+      author: `${podcastConfig.email}`,
       "itunes:episode": episode.data.episode,
       "itunes:season": episode.data.season,
       "itunes:episodeType": episode.data.episodeType,
@@ -104,12 +106,14 @@ export async function GET(context) {
           type: "audio/mpeg",
         },
       },
-      "itunes:duration": episode.data.duration,
+      "itunes:duration": episode.data.duration,episode
     };
     const cover_url = episode.data.cover ? episode.data.cover : podcastConfig.cover;
     item["itunes:image"] = {
       $: { href: isFullUrl(cover_url) ? cover_url : podcastConfig.link + cover_url },
     };
+  
+    delete item.episode;
     return item;
   });
 

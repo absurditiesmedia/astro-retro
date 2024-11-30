@@ -6,7 +6,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 type Props = CollectionEntry<'blog'>['data'];
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseHead title=`${title} | ${SITE_TITLE}`  description={SITE_DESCRIPTION} />
@@ -27,8 +27,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						)
 					}
 				</div>
-				<h1>{title}</h1>
-				<hr />
+				<h2>{title}</h2>
 			</div>
 			<div class="blog-post-body post-body">
 				<slot />

@@ -7,9 +7,8 @@ import podcastConfig from "../../podcast.config.json";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import EpisodeCard from "../components/EpisodeCard.astro";
-const { title, body, explicit, pubDate, cover, desc, url, audioUrl, duration, index, episode, season} = Astro.props;
+const { title, explicit, pubDate, cover, desc, url, audioUrl, duration, index, episode, season} = Astro.props;
 dayjs.extend(localizedFormat);
-const displayDate = dayjs(pubDate).format("ll");
 ---
 <BaseHead  title=`${title} E${episode}S${season} | ${podcastConfig.name} | ${SITE_TITLE}`  description={SITE_DESCRIPTION}/>
 <Header/>	
@@ -26,5 +25,4 @@ const displayDate = dayjs(pubDate).format("ll");
 	episode={episode}
   id={"card-" + index}
 />
-</BaseLayout>
 <Footer/>
