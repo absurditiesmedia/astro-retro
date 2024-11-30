@@ -13,7 +13,7 @@ const lastBuildDate = dayjs().format("ddd, DD MMM YYYY hh:mm:ss ZZ");
 const cover = isFullUrl(podcastConfig.cover) ? podcastConfig.cover : podcastConfig.link + podcastConfig.cover;
 const currentYear = new Date().getFullYear();
 
-export async function GET(context) {
+export async function GET() {
   let podcast = {
     rss: {
       $: {

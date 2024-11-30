@@ -1,5 +1,5 @@
 // @ts-check
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from './src/consts';
+import { SITE_URL } from './src/consts';
 import customTheme from 'shiki/dist/themes/tokyo-night.mjs';
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
