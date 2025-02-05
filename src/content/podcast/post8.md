@@ -4,7 +4,7 @@ audioUrl: https://ia803202.us.archive.org/6/items/cast7/cast8.mp3
 pubDate: Nov 18 2024
 duration: 01:21:25
 size: 0.7
-cover: "/absurdities_placeholder19.png"
+cover: '/absurdities_placeholder19.png'
 explicit: false
 episode: 8
 season: 1
