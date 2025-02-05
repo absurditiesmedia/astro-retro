@@ -10,7 +10,7 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-let processedPosts = [];
+let processedPosts:any = [];
 //optimizeImage is an async function, so it must be called with await, which can only
 //be done in an async function
 async function preprocessPosts(posts) {
