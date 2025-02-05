@@ -1,6 +1,8 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import PodcastLayout from '../../layouts/PodcastLayout.astro';
+import { optimizeImage } from '../../utils/imageProcessor';
+
 
 export async function getStaticPaths() {
 	const episodes = await getCollection('podcast');
@@ -9,9 +11,16 @@ export async function getStaticPaths() {
 		props: episode,
 	}));
 }
+
 type Props = CollectionEntry<'podcast'>;
 const episode = Astro.props;
+if(episode.data.cover) {
+	episode.data.cover = await optimizeImage(episode.data.cover);
+}
+
 const { Content } = await episode.render();
+
+
 ---
 
 <PodcastLayout 
