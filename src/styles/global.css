@@ -87,9 +87,8 @@ code{
 	color:var(--accent2);
 }
 
-article.pre {
-	white-space: pre-wrap;
-	margin-bottom:1rem;
+article {
+	margin-bottom:1em;
 }
 
 article.blog-post-teaser { white-space:unset; }
