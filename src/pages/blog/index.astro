@@ -42,11 +42,11 @@ processedPosts = await preprocessPosts(posts);
 								{(post.data.heroImage) && (
 								<a class="image-link" href={`/blog/${post.slug}/`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
-								</a><br/>
+								</a>
 								)}
 								<a href={`/blog/${post.slug}/`}>
 									<h3 class="title">//{post.data.title}</h3>
-								</a><br/>
+								</a>
 								<em><FormattedDate date={post.data.pubDate} /></em>
 								{(post.data.description) && <div class="post-description blog-description">{post.data.description}</div>}
 							</article>

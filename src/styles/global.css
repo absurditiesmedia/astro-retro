@@ -75,6 +75,12 @@ h7	{font-size:1rem;}
 h8	{font-size:.75rem;}
 h9  {font-size:.5rem;}
 
+.blog-posts .title, .episode-title {
+	margin-bottom:0.5em;
+	margin-top:0.25em;
+	font-size:1.75rem;
+}
+
 a.image-link { text-decoration:none; }
 code{
  background: var(--accent-dark);
@@ -88,7 +94,7 @@ code{
 }
 
 article {
-	margin-bottom:1em;
+	margin-bottom:2em;
 }
 
 article.blog-post-teaser { white-space:unset; }
