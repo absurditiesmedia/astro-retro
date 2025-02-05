@@ -20,6 +20,7 @@ const episodes = (await getCollection('podcast')).sort(
 async function preprocessPosts(posts) {
     for (const post of posts) {
     if (post.data.cover) {
+
       post.data.cover = await optimizeImage(post.data.cover);
     }
   }
