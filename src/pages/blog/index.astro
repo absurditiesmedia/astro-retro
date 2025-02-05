@@ -3,11 +3,33 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { optimizeImage } from '../../utils/imageProcessor';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+let processedPosts = [];
+//optimizeImage is an async function, so it must be called with await, which can only
+//be done in an async function
+async function preprocessPosts(posts) {
+    for (const post of posts) {
+    if (post.data.heroImage) {
+      post.data.heroImage = await optimizeImage(post.data.heroImage);
+    }
+  }
+	return posts;
+}
+
+//and we must await here because we fired off a whole list of async functions
+//and they will most certainly not return immediately after the call. which
+//is exactly why when await is used inside a function that function must be 
+//asynchronous. Because all the way at the top, there must be one final await.
+//it's somewhat like recursion, but also in parallel. or whatever, that's how
+//I can think about it. 
+
+processedPosts = await preprocessPosts(posts); 
 ---
 <BaseHead title=`Blog | ${SITE_TITLE}` description={SITE_DESCRIPTION} />
 <Header />
@@ -15,14 +37,18 @@ const posts = (await getCollection('blog')).sort(
 			<h2>Blog</h2>
 			<section id="blog-posts" class="blog-posts">
 					{
-						posts.map((post) => (
+						processedPosts.map((post) => (
 							<article class="blog-post-teaser">
+								{(post.data.heroImage) && (
 								<a class="image-link" href={`/blog/${post.slug}/`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
 								</a><br/>
+								)}
 								<a href={`/blog/${post.slug}/`}>
-									<h2 class="title">//{post.data.title} - <FormattedDate date={post.data.pubDate} /></h2>
-								</a>
+									<h3 class="title">//{post.data.title}</h3>
+								</a><br/>
+								<em><FormattedDate date={post.data.pubDate} /></em>
+								{(post.data.description) && <div class="post-description blog-description">{post.data.description}</div>}
 							</article>
 						))
 					}

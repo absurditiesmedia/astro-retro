@@ -5,15 +5,15 @@
  */
 
 :root {
-  --hot-magenta: #ee00cc;
-  --honolulu-blue: #2277aa;
-  --imperial-red: #ff3344;
-  --spring-bud: #aaff00;
-  --yale-blue: #113366;
-  --penn-blue: #000033;
-  --english-violet: #443355;
-  --wisteria: #aa99cc;
-  --dark-purple: #332244;
+	--hot-magenta: #ee00cc;
+	--honolulu-blue: #2277aa;
+	--imperial-red: #ff3344;
+	--spring-bud: #aaff00;
+	--yale-blue: #113366;
+	--penn-blue: #000033;
+	--english-violet: #443355;
+	--wisteria: #aa99cc;
+	--dark-purple: #332244;
 
 	--page-bg: var(--spring-bud);
 	--text-primary: var(--penn-blue);
@@ -24,17 +24,20 @@
 	--link-hover:var(--honolulu-blue);
 	--accent: var(--hot-magenta);
 	--accent2: var(--imperial-red);
+	--accent-dark: var(--penn-blue);
 
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
+
 html {
 	background-color: var(--page-bg);
 	color:var(--text-primary);
-  font-weight:400;
+	font-weight:400;
 	font-family:"Source Code Pro", monospace;	
+	font-size:1.2em;
 }
 
 em{
@@ -42,7 +45,7 @@ em{
 	font-style:italic;
 }
 
-strong{
+strong {
 	color:var(--text-bold)
 	font-weight:700;
 }
@@ -53,31 +56,35 @@ a:hover { color:var(--link-hover); }
 
 img { 
 	max-width: 98vw; 
-  box-shadow:10px 10px var(--accent2);
-  margin:0 0 10px 0;
+	box-shadow:10px 10px var(--accent2);
+	margin:0 0 10px 0;
 }
 
 h1,h2,h3,h4,h5,h6,h7,h8,h9 {
 	color:var(--header-text);
-	display: inline;
 	font-weight:700;
 }
 
 h1	{font-size: 4rem;}
 h2	{font-size:2.5rem;}
-h3	{font-size:2.25rem;}
-h4	{font-size:2rem;}
-h5	{font-size:1.75rem;}
-h6	{font-size:1.5rem;}
-h7	{font-size:1.25rem;}
-h8	{font-size:1rem;}
+h3	{font-size:1.75rem;}
+h4	{font-size:1.5rem;}
+h5	{font-size:1.25rem;}
+h6	{font-size:1.1rem;}
+h7	{font-size:1rem;}
+h8	{font-size:.75rem;}
 h9  {font-size:.5rem;}
 
 a.image-link { text-decoration:none; }
-
+code{
+ background: var(--accent-dark);
+ color: var(--accent2);
+ font-weight:bold;
+}
 .astro-code {
 	padding:.6rem;
-  background:var(--accent-dark) !important;
+  display:block;
+	color:var(--accent2);
 }
 
 article.pre {
@@ -93,5 +100,4 @@ li p {
 	display:inline;
 	margin:0;
 	padding:0;
-  white-space:pre-wrap;  
 }
