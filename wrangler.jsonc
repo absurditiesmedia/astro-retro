@@ -1,6 +1,5 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-  "main": "./dist/_worker.js/index.js",
 	"name": "astro-retro",
 	"compatibility_date": "2025-04-10",
 	"compatibility_flags": [
