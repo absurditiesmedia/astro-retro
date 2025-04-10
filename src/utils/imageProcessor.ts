@@ -2,7 +2,9 @@ import fs from 'fs-extra';
 import path from "path";
 import sharp from "sharp";
 
-const IMAGE_DIR = "public/optimized-images";
+const isBuild = process.argv.includes('build');
+
+const IMAGE_DIR = isBuild ?  "dist/optimized-images" : "public/optimized-images";
 
 // Convert an image to WebP and return the new path
 export async function optimizeImage(originalPath: string): Promise<string> {

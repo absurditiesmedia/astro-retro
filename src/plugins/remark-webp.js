@@ -3,7 +3,9 @@ import path from 'path';
 import sharp from 'sharp';
 import { visit } from 'unist-util-visit';
 
-const IMAGE_DIR = 'public/optimized-images';
+const isBuild = process.argv.includes('build');
+
+const IMAGE_DIR = isBuild ?  "dist/optimized-images" : "public/optimized-images";
 
 export default function remarkWebp() {
   return async (tree, file) => {
