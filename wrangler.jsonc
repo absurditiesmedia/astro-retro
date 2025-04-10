@@ -1,3 +1,15 @@
 {
-  "compatibility_date": "2025-04-10"
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "astro-retro",
+	"compatibility_date": "2025-04-10",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	"observability": {
+		"enabled": true
+	}
 }
